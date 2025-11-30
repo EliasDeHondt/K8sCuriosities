@@ -44,24 +44,10 @@ jobs:
         uses: azure/setup-kubectl@v3
         with:
           version: 'v1.28.0'
-      - name: Validate Kubernetes YAML Cluster01
+      - name: Validate Kubernetes YAML Curiosities
         run: |
-          # Test all YAML files under 'Cluster01/' for syntax errors
-          for file in $(find cluster01 -name '*.yaml'); do
-            echo "Validating $file"
-            kubectl apply --dry-run=client -f $file
-          done
-      - name: Validate Kubernetes YAML Cluster02
-        run: |
-          # Test all YAML files under 'Cluster02/' for syntax errors
-          for file in $(find cluster02 -name '*.yaml'); do
-            echo "Validating $file"
-            kubectl apply --dry-run=client -f $file
-          done
-      - name: Validate Kubernetes YAML Cluster03
-        run: |
-          # Test all YAML files under 'Cluster03/' for syntax errors
-          for file in $(find cluster03 -name '*.yaml'); do
+          # Test all YAML files under 'Curiosities/' for syntax errors
+          for file in $(find Curiosities -name '*.yaml'); do
             echo "Validating $file"
             kubectl apply --dry-run=client -f $file
           done
