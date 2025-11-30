@@ -1,0 +1,34 @@
+############################
+# @author EliasDH Team     #
+# @see https://eliasdh.com #
+# @since 01/01/2025        #
+############################
+---
+# For PiHole
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pihole1-pvc
+  namespace: pihole
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: longhorn
+---
+# For DNSMasq
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pihole2-pvc
+  namespace: pihole
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: longhorn
+---
